@@ -4,7 +4,7 @@ const UserModel = require("../models/userModel")
 const userAuth = async (req,res,next)=>{
     try {
         const token = req.header("Authorization").replace("Bearer ","")
-        console.log(token);
+        // console.log(token);
         const decode = jwt.verify(token,"thisismysemtwoproject")
         const user  = await UserModel.findOne({_id:decode._id,"tokens.token":token})
     if(!user){

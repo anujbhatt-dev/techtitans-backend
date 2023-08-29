@@ -76,6 +76,7 @@ router.get("/", async (req,res)=>{
 router.get("/:id", async (req,res)=>{
     try{
         const user = await EventModel.findById(req.params.id)
+        
         if(!user){
             res.status(400).send("Event not found")
         }

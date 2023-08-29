@@ -41,8 +41,6 @@ const userSchema = new mongoose.Schema({
   pic:{
     type:Buffer
   },
-  skills: [String],
-  interests: [String],
   tokens:[{
     token:{
       type:String,

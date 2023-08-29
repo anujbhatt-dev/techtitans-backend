@@ -5,18 +5,13 @@ const resumeSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true,
+    required: true 
   },
-  fullName: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-  },
-  phone: {
-    type: String,
+  objective:{
+    type:String,
+    required:true,
+    maxLength:300,
+    minLength:20
   },
   education: [
     {
@@ -24,34 +19,28 @@ const resumeSchema = new mongoose.Schema({
         type: String,
         required: true,
       },
-      university: {
+      college: { 
         type: String,
         required: true,
       },
       startYear: {
         type: Number,
+        required: true,
       },
       endYear: {
         type: Number,
-      },
-    },
-  ],
-  skills: [
-    {
-      name: {
-        type: String,
         required: true,
       },
-      level: {
-        type: String,
-        enum: ['Beginner', 'Intermediate', 'Advanced'],
-        default: 'Beginner',
+      cgpa: {  
+        type: Number,
+        min:0,
+        max:10
       },
     },
   ],
   experiences: [
     {
-      title: {
+      role: {
         type: String,
         required: true,
       },
@@ -79,9 +68,11 @@ const resumeSchema = new mongoose.Schema({
       },
       description: {
         type: String,
+        required: true,
       },
       technologies: {
         type: [String],
+        required: true,
       },
     },
   ],
@@ -100,9 +91,8 @@ const resumeSchema = new mongoose.Schema({
       },
     },
   ],
-  interests: {
-    type: [String],
-  },
+  interests: [String],
+  skills: [String]
 },{
     timestamps:{
         currentTime: () => Math.floor(Date.now() + 5.5 * 60 * 60 * 1000)
