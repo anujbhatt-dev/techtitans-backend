@@ -6,7 +6,7 @@ const EventRouter = require("./routes/eventRouter")
 const BlogRouter = require("./routes/blogRouter")
 const ResumeRouter = require("./routes/resumeRouter")
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001 ;
 const cors = require("cors")
 app.use(cors())
 require("./dbconnect")
